@@ -21,3 +21,18 @@ Route::get('/', function () {
 Route::get('articles/{articles}/{id}', function($articles,$id){
     return "get by article  $articles and $id";
 });
+
+Route::prefix('/admin')->group(function() {
+    Route::get('/',function() {
+        return "step0";
+    });
+    Route::get('/step1',function() {
+        return "step1";
+    });
+    Route::get('/step2',function() {
+        return "step2";
+    });
+    Route::get('/step3',function() {
+        return "step3";
+    });
+});
