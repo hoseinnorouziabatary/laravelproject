@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('articles/{articles}/{id}', function($articles,$id){
+    return "get by article  $articles and $id";
+});
