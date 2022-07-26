@@ -19,12 +19,17 @@ Route::get('/', function () {
 
 
 Route::get('articles/{articles}/{id}', function($articles,$id){
-    return "get by article  $articles and $id";
+    // return "get by article  $articles and $id";
+    return view('index',[
+        'articles'=>$articles,
+        'id'=>$id
+    ]);
 });
 
 Route::prefix('/admin')->group(function() {
     Route::get('/',function() {
-        return "step0";
+       $account='admin';
+       return view('welcome');
     });
     Route::get('/step1',function() {
         return "step1";
