@@ -22,13 +22,16 @@ Route::get('articles/{articles}/{id}', function($articles,$id){
     // return "get by article  $articles and $id";
     return view('index',[
         'articles'=>$articles,
-        'id'=>$id
+        'id'=>$id,
+        'listuser'=>[
+            'hosein' => '001528',
+            'ali'=>'001563'
+        ]
     ]);
 });
 
 Route::prefix('/admin')->group(function() {
     Route::get('/',function() {
-       $account='admin';
        return view('welcome');
     });
     Route::get('/step1',function() {

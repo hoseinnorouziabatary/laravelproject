@@ -1,54 +1,22 @@
-<!DOCTYPE html>
-<html>
-<style>
-body, html {
-  height: 100%;
-  margin: 0;
-}
-.bgimg {
-  background-color:blueviolet;
-  height: 100%;
-  background-position: center;
-  background-size: cover;
-  position: relative;
-  color: white;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 25px;
-}
-.topleft {
-  position: absolute;
-  top: 0;
-  left: 16px;
-}
-.bottomleft {
-  position: absolute;
-  bottom: 0;
-  left: 16px;
-}
-.middle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-hr {
-  margin: auto;
-  width: 40%;
-}
-</style>
-<body>
+@extends('layouts.master')
 
-<div class="bgimg">
- 
-  <div class="middle">
-    <h1>WELCOME</h1>
-    <hr>
-    @if($articles and $id)
-        <p>your articles: <?= $articles?> and by id : <?=  $id?></p>
-    @endif
-  </div>
-   
-</div>
-</body>
-</html>
+<!-- This line is used for short strings in section -->
+@section('title', 'index')
+
+
+@section('content')
+<div class="middle">
+            <h1>WELCOME</h1>
+            <hr>
+            @if($articles and $id)
+                <!-- A line htmlspicialchars and A line code balde -->
+                <!-- <p>your articles: <?= htmlspecialchars($articles)?> and by id : <?= htmlspecialchars($id)?></p> -->
+                <p>your articles: {{$articles}} and by id : {{$id}}</p>
+            @endif
+            @if($listuser)
+                @foreach($listuser as $key=>$val)
+                    <p>username :{{$key}} and code : {{$val}}</p>
+                @endforeach
+            @endif
+        </div>
+@endsection
