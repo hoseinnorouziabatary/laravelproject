@@ -14,33 +14,38 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('/about', function () {
+    return view('about');
 });
 
 
-Route::get('articles/{articles}/{id}', function($articles,$id){
-    // return "get by article  $articles and $id";
-    return view('index',[
-        'articles'=>$articles,
-        'id'=>$id,
-        'listuser'=>[
-            'hosein' => '001528',
-            'ali'=>'001563'
-        ]
-    ]);
-});
 
-Route::prefix('/admin')->group(function() {
-    Route::get('/',function() {
-       return view('welcome');
-    });
-    Route::get('/step1',function() {
-        return "step1";
-    });
-    Route::get('/step2',function() {
-        return "step2";
-    });
-    Route::get('/step3',function() {
-        return "step3";
-    });
-});
+// Route::get('articles/{articles}/{id}', function($articles,$id){
+//     // return "get by article  $articles and $id";
+//     return view('index',[
+//         'articles'=>$articles,
+//         'id'=>$id,
+//         'listuser'=>[
+//             'hosein' => '001528',
+//             'ali'=>'001563'
+//         ]
+//     ]);
+// });
+
+// Route::prefix('/admin')->group(function() {
+//     Route::get('/',function() {
+//        return view('welcome');
+//     });
+//     Route::get('/step1',function() {
+//         return "step1";
+//     });
+//     Route::get('/step2',function() {
+//         return "step2";
+//     });
+//     Route::get('/step3',function() {
+//         return "step3";
+//     });
+// });
